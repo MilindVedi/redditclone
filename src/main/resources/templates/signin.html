@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+}
+form {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 400px;
+  margin: auto;
+  margin-top: 50px;
+}
+h2 {
+  text-align: center;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input[type="text"],
+input[type="password"] {
+  padding: 5px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+input[type="submit"] {
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+
+  </style>
+
+<head>
+  <title>Sign In</title>
+
+</head>
+<body>
+<form th:action="@{/performLogin}" method="post">
+  <h2>Sign In</h2>
+  <label for="email">Email:</label>
+  <input type="email" id="email" th:name="email" required>
+  <br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" th:name="password" required>
+  <br>
+  Don't have an account?
+  <a href="/">Go to Homepage</a>
+  <input type="submit" value="Sign In">
+</form>
+</body>
+
+
+</html>

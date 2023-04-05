@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <style>
+            .btnCreatePost,
+.btnCreateSubreddit {
+  margin-top: 5px;
+}
+
+.post-form {
+  margin: 2px;
+}
+
+.comment-notification {
+  margin-top: 5px;
+}
+
+.create-post-container {
+  margin-top: 10px;
+  --post-line-color: #ccc;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #878A8C;
+  position: relative;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.btnDiscard {
+    fill: #0079D3;
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding: 3px 16px;
+    opacity: 1;
+    width: 288px;
+    height: 34px;
+    margin-top: 5px;
+    color: #0079D3;
+    background-color: transparent;
+  }
+
+.create-post-heading {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #1c1c1c;
+  -ms-flex: 1;
+  flex: 1;
+}
+
+.btnCreatePost {
+    background-color: #0079D3;
+    border-color: #0079D3;
+    color: aliceblue;
+    fill: #0079D3;
+    border: 1px solid;
+    border-radius: 4px;
+    text-align: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .5px;
+    line-height: 24px;
+    text-transform: uppercase;
+    padding: 3px 16px;
+    opacity: 1;
+    width: 288px;
+    height: 34px;
+  }
+        </style>
+
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <hr />
+    <div class="create-post-container col-md-9">
+
+      <div class="create-post-heading">Create Post</div>
+      <hr />
+      <div >
+        <form th:action="@{/saveEditedPost}" enctype="multipart/form-data" method="post" style="display: flex;
+    flex-direction: column;
+    align-items: flex-start;">
+          <!--<input style="width: 50%; background-color: white;" type="text" placeholder="Choose a Community"
+                 name = "subreddit">-->
+          <input type="hidden" th:field="*{post.postId}">
+          <input type="text" placeholder="Title" th:field="*{post.postName}">
+          <input type="file" name="image"  accept="video/*,image/*">
+          <textarea cols="30" rows="10" placeholder="Text(optional)" th:field="*{post.description}"></textarea>
+          <!-- add tags -->
+          <div style="float: right; display: flex; column-gap: 1rem; justify-content: flex-end;">
+            <input type="submit" class="btnCreatePost" value="Post">
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+</body>
+</html>

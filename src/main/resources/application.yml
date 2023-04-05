@@ -1,0 +1,16 @@
+cloud:
+  aws:
+    credentials:
+      access-key: AKIA5W3VRKMPCEE4OPNE
+      secret-key: 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
+    region:
+      static: ap-south-1
+    stack:
+      auto: false
+
+application:
+  bucket:
+    name: redditclonestore
+
+
+

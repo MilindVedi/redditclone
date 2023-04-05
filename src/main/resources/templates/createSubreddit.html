@@ -1,0 +1,113 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <style>
+    .container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.create-subreddit-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.create-subreddit-heading {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.checkbox-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.float-right {
+  float: right;
+}
+
+.sidebar {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.guidelines {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+hr {
+  margin: 10px 0;
+  border: 0;
+  border-top: 1px solid #ccc;
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="create-subreddit-container">
+            <form class="post-form" th:action="@{/createCommunity} " enctype="multipart/form-data"
+                  method="post">
+                <div class="form-group">
+                    <div class="create-subreddit-heading">Create Subreddit</div>
+                    <hr />
+                    <input type="text" class="form-control" name="name" style="margin-top: 5px"
+                           placeholder="Title" required >
+                    <input style="margin-top: 20px;" required type="file" name="image" accept="video/*,image/*">
+                    <textarea style="margin-top: 20px; border: 1.5px solid black;
+                            width: 80%;" cols="150" rows="12" placeholder="Text" required
+                              name = "description"></textarea>
+                    <div>
+                        <br>
+                        <b>Adult content</b><br>
+                        <input type="checkbox" required value="yes"> <b>18+ year old community</b>
+                        <div style="margin-top: 5px" class="float-right">
+                            <input type="submit" value="Create">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-3">
+            <div class="sidebar">
+                <h5 class="guidelines">Posting to Reddit</h5>
+                <hr />
+                <ul>
+                    <li>Remember the human</li>
+                    <hr />
+                    <li>Behave like you would in real life</li>
+                    <hr />
+                    <li>Don't spam</li>
+                    <hr />
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
